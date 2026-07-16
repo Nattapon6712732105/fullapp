@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopf/minigame.dart' show MiniGamePage;
 import 'package:shopf/profile.dart';
 import 'package:shopf/homeapp.dart';
 import 'package:shopf/my_home_page.dart';
@@ -95,6 +96,14 @@ class AppDrawer extends StatelessWidget {
               Get.to(() => const History());
             },
           ),
+          _DrawerItem(
+            icon: Icons.games_rounded,
+            label: 'Mini Game',
+            onTap: () {
+              Navigator.pop(context);
+              Get.to(() => const MiniGamePage());
+            },
+          ),
           // Divider
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -150,4 +159,3 @@ class _DrawerItem extends StatelessWidget {
     );
   }
 }
-
