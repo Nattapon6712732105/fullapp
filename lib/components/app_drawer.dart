@@ -5,6 +5,10 @@ import 'package:shopf/profile.dart';
 import 'package:shopf/homeapp.dart';
 import 'package:shopf/my_home_page.dart';
 import 'package:shopf/้history.dart';
+import 'package:shopf/helpers/db_helper.dart';
+
+// Import หน้า Auth เพิ่มเติม
+import 'package:shopf/screens/auth/welcome.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -51,7 +55,7 @@ class AppDrawer extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 2),
-                // Subtitle (corrected Thai)
+                // Subtitle
                 Text(
                   'รายละเอียดโปรไฟล์',
                   style: TextStyle(
@@ -104,6 +108,18 @@ class AppDrawer extends StatelessWidget {
               Get.to(() => const MiniGamePage());
             },
           ),
+          
+          // 🔴 เมนูออกจากระบบ (Logout)
+          _DrawerItem(
+            icon: Icons.logout_rounded,
+            label: 'ออกจากระบบ',
+            onTap: () async {
+              Navigator.pop(context);
+              await DBHelper().logout();
+              Get.offAll(() => const WelcomeScreen());
+            },
+          ),
+
           // Divider
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
