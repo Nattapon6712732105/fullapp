@@ -47,10 +47,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
       return;
     }
 
-    if (password.length < 4) {
+    final lowercaseCount = RegExp(r'[a-z]').allMatches(password).length;
+    final uppercaseCount = RegExp(r'[A-Z]').allMatches(password).length;
+
+    if (password.length < 8 || lowercaseCount < 2 || uppercaseCount < 1) {
       Get.snackbar(
         'ข้อผิดพลาด',
-        'รหัสผ่านต้องมีความยาวอย่างน้อย 4 ตัวอักษร',
+        'รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร และต้องประกอบด้วยตัวอักษรตัวเล็กอย่างน้อย 2 ตัว และตัวใหญ่อย่างน้อย 1 ตัว',
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.redAccent,
         colorText: Colors.white,
