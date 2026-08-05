@@ -182,7 +182,7 @@ class WelcomeScreen extends StatelessWidget {
 
                               // Header Title
                               const Text(
-                                'ทุเรียนภูเขาไฟศรีสะเกษ',
+                                'Shopif',
                                 style: TextStyle(
                                   fontSize: 22,
                                   fontWeight: FontWeight.bold,
